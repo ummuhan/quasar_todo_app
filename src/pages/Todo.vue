@@ -51,6 +51,15 @@
         </q-item-section>
       </q-item>
     </q-list>
+    <!-- Task listesi boşsa ekranda gösterilecek yazı ve icon. -->
+    <!-- v-if if şartını yazdığımız yapıdır. -->
+    <div
+
+    v-if="!tasks.length" 
+    class="no-task absolute-center">
+      <q-icon name="warning" size="100px" color="primary" />
+      <div class="text-h5 text-primary text-center">No Task Yet</div>
+    </div>
   </q-page>
 </template>
 
@@ -59,19 +68,19 @@ export default {
   data() {
     return {
       newTask: "",
-      tasks: [
-        {
-          title: "get egg",
-          done: false,
-        },
-        {
-          title: "get milk",
-          done: false,
-        },
-        {
-          title: "get nuts",
-          done: false,
-        },
+       tasks: [
+      //   // {
+      //   //   title: "get egg",
+      //   //   done: false,
+      //   // },
+      //   // {
+      //   //   title: "get milk",
+      //   //   done: false,
+      //   // },
+      //   // {
+      //   //   title: "get nuts",
+      //   //   done: false,
+      //   // },
       ],
     };
   },
@@ -85,9 +94,9 @@ export default {
     },
     addTask() {
       this.tasks.push({
-        title:this.newTask,
-        done:false
-      })
+        title: this.newTask,
+        done: false,
+      });
       this.$q.notify({
         message: "Successfully added....",
         color: "Green",
@@ -103,5 +112,8 @@ export default {
     text-decoration: line-through;
     color: rgb(42, 88, 73);
   }
+}
+.no_task{
+  opacity: 0.5;
 }
 </style>
